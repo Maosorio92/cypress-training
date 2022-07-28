@@ -1,10 +1,10 @@
 import {MenuContentPage} from "../page/index";
-import{ ProductslistPage } from "../page/index";
-import{ ShopingCartPage } from "../page/index";
-import{ LoginPage } from "../page/index";
-import{ AdressStepPage } from "../page/index";
-import{ ShippingStepPage } from "../page/index";
-import{ PaymentStepPage } from "../page/index";
+import {ProductslistPage} from "../page/index";
+import {ShopingCartPage} from "../page/index";
+import {LoginPage} from "../page/index";
+import {AdressStepPage} from "../page/index";
+import {ShippingStepPage} from "../page/index";
+import {PaymentStepPage} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productsListPage = new ProductslistPage();
@@ -23,10 +23,10 @@ describe("Buy a t-shirt", () => {
     shopingCartPage.goToproceedToCheckoutSummary();
     loginPage.writeEmail("aperdomobo@gmail.com");
     loginPage.writePassword("WorkshopProtractor");
-    loginPage.goToSubmit();    
+    loginPage.goToSubmit();
     adressStepPage.goToproceedToCheckoutAdress();
     shippingStepPage.getCheck();
-    shippingStepPage.goToproceedToCheckoutShipping()
+    shippingStepPage.goToproceedToCheckoutShipping();
     paymentStepPage.goTopayment();
     paymentStepPage.goToproceedToCheckoutPayment();
     paymentStepPage.getConfirm();
