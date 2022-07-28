@@ -1,29 +1,41 @@
+import {MenuContentPage} from "../page/index";
+import{ ProductslistPage } from "../page/index";
+import{ ShopingCartPage } from "../page/index";
+import{ LoginPage } from "../page/index";
+import{ AdressStepPage } from "../page/index";
+import{ ShippingStepPage } from "../page/index";
+import{ PaymentStepPage } from "../page/index";
+
+const menuContentPage = new MenuContentPage();
+const productsListPage = new ProductslistPage();
+const shopingCartPage = new ShopingCartPage();
+const loginPage = new LoginPage();
+const adressStepPage = new AdressStepPage();
+const shippingStepPage = new ShippingStepPage();
+const paymentStepPage = new PaymentStepPage();
+
 describe("Buy a t-shirt", () => {
-  it("then the t-shirt should be bought", () => {
-    cy.visit("http://automationpractice.com/");
-    cy.get("#block_top_menu > ul > li:nth-child(3) > a").click();
-    cy.get(
-        "#center_column a.button.ajax_add_to_cart_button.btn.btn-default",
-    ).click();
-    cy.get("[style*='display: block;'] .button-container > a").click();
-    cy.get(".cart_navigation span").click();
+  it("then should be bought a t-shirt", () => {
+    menuContentPage.visitMenuContentPage();
+    menuContentPage.goToTShirtMenu();
+    productsListPage.goToproductList();
+    productsListPage.goToproceedToCheckout();
+    shopingCartPage.goToproceedToCheckoutSummary();
+    loginPage.writeEmail("aperdomobo@gmail.com");
+    loginPage.writePassword("WorkshopProtractor");
+    loginPage.goToSubmit();    
+    adressStepPage.goToproceedToCheckoutAdress();
+    shippingStepPage.getCheck();
+    shippingStepPage.goToproceedToCheckoutShipping()
+    paymentStepPage.goTopayment();
+    paymentStepPage.goToproceedToCheckoutPayment();
+    paymentStepPage.getConfirm();
 
-    cy.get("#email").type("aperdomobo@gmail.com");
-    cy.get("#passwd").type("WorkshopProtractor");
+    // cy.get("[style*=' display: block;'] .button-container > a").click();
+    // cy.get(".cart_navigation span").click();
 
-    cy.get("[name=SubmitLogin]").click();
-    cy.get(".cart_navigation span").click();
-
-    cy.get("[name=cgv]").click();
-    cy.get(".cart_navigation span").click();
-
-    cy.get("[title='Pay by bank wire']").click();
-    cy.get(".cart_navigation span").click();
-
-
-    cy.get("#center_column > div > p > strong").should(
-        "have.text",
-        "Your order on My Store is complete.",
-    );
+    // El resto del flujo de la prueba....
   });
 });
+
+
