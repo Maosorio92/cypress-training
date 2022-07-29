@@ -10,19 +10,16 @@ class PaymentStepPage {
     }
 
         
-    public goTopayment(): void {
+    public goToPayment(): void {
         cy.get(this.payment).click()
     }
 
-    public goToproceedToCheckoutPayment(): void {
+    public proceedToCheckout(): void {
         cy.get(this.proceedToCheckoutPayment).click()
     }
 
-    public getConfirm(): void {
-        cy.get(this.confirmation).should(
-            "have.text",
-            "Your order on My Store is complete.",
-        )
+    public getConfirm(): any {
+        return cy.get(this.confirmation)
     }
 }
 

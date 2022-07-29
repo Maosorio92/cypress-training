@@ -1,18 +1,18 @@
 class ProductslistPage {
     private productList: string;
-    private proceedToCheckout: string;     
+    private proceedToCheckoutProduct: string;     
 
     constructor() {
         this.productList ="#center_column a.button.ajax_add_to_cart_button.btn.btn-default";
-        this.proceedToCheckout ="[style*='display: block;'] .button-container > a";
+        this.proceedToCheckoutProduct ="[style*='display: block;'] .button-container > a";
     }
 
     
-    public goToproductList(): void {
+    public goToProductList(): void {
         cy.get(this.productList).click()
     }
-    public goToproceedToCheckout(): void {
-        cy.get(this.proceedToCheckout).click()
+    public proceedToCheckout(): void {
+        cy.get(this.proceedToCheckoutProduct).click()
     }
 }
 

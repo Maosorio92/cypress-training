@@ -8,11 +8,11 @@ class ShippingStepPage {
     }
 
     
-    public getCheck(): void {
+    public acceptTerms(): void {
         cy.get(this.check).click()
     }
     
-    public goToproceedToCheckoutShipping(): void {
+    public proceedToCheckout(): void {
         cy.get(this.proceedToCheckoutAdress).click()
     }
 }

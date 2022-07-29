@@ -1,10 +1,12 @@
-import {MenuContentPage} from "../page/index";
-import {ProductslistPage} from "../page/index";
-import {ShopingCartPage} from "../page/index";
-import {LoginPage} from "../page/index";
-import {AdressStepPage} from "../page/index";
-import {ShippingStepPage} from "../page/index";
-import {PaymentStepPage} from "../page/index";
+import {
+  MenuContentPage,
+  ProductslistPage,
+  ShopingCartPage,
+  LoginPage,
+  AdressStepPage,
+  ShippingStepPage,
+  PaymentStepPage,
+} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productsListPage = new ProductslistPage();
@@ -18,24 +20,19 @@ describe("Buy a t-shirt", () => {
   it("then should be bought a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
-    productsListPage.goToproductList();
-    productsListPage.goToproceedToCheckout();
-    shopingCartPage.goToproceedToCheckoutSummary();
-    loginPage.writeEmail("aperdomobo@gmail.com");
-    loginPage.writePassword("WorkshopProtractor");
+    productsListPage.goToProductList();
+    productsListPage.proceedToCheckout();
+    shopingCartPage.proceedToCheckout();
+    loginPage.signIn("aperdomobo@gmail.com", "WorkshopProtractor");
     loginPage.goToSubmit();
-    adressStepPage.goToproceedToCheckoutAdress();
-    shippingStepPage.getCheck();
-    shippingStepPage.goToproceedToCheckoutShipping();
-    paymentStepPage.goTopayment();
-    paymentStepPage.goToproceedToCheckoutPayment();
-    paymentStepPage.getConfirm();
-
-    // cy.get("[style*=' display: block;'] .button-container > a").click();
-    // cy.get(".cart_navigation span").click();
-
-    // El resto del flujo de la prueba....
+    adressStepPage.proceedToCheckout();
+    shippingStepPage.acceptTerms();
+    shippingStepPage.proceedToCheckout();
+    paymentStepPage.goToPayment();
+    paymentStepPage.proceedToCheckout();
+    paymentStepPage.getConfirm().should(
+      "have.text",
+      "Your order on My Store is complete.",
+  );
   });
 });
-
-
