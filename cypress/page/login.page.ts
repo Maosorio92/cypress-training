@@ -1,17 +1,17 @@
 class LoginPage {
-    private userEmail: string;
-    private userPassword: string;
+    private Email: string;
+    private Password: string;
     private submit: string;           
 
     constructor() {
-        this.userEmail ="#email";
-        this.userPassword ="#passwd";
+        this.Email ="#email";
+        this.Password ="#passwd";
         this.submit = "[name=SubmitLogin]";        
     }
     
-    public signIn(a :string, b : string): void {
-        cy.get(this.userEmail).type(a)
-        cy.get(this.userPassword).type(b)
+    public signIn(userEmail :string, userPassword : string): void {
+        cy.get(this.Email).type(userEmail)
+        cy.get(this.Password).type(userPassword)
         cy.get(this.submit).click()
     }      
 }
