@@ -3,7 +3,9 @@ class MenuContentPage {
     private menuContentPageURL: string
 
     constructor() {
-        this.tShirtMenu = "#block_top_menu > ul > li:nth-child(3) > a";
+        this.tShirtMenu = "#block_top_menu > ul > li > a[title='T-shirts']";
+	    // Here, this selector was improved in order to avoid the position of the list.
+        // Besides, an attribute is being used.
         this.menuContentPageURL = "http://automationpractice.com/"
     }
 
