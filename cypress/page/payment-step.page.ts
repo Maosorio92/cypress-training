@@ -5,7 +5,7 @@ class PaymentStepPage {
 
     constructor() {        
         this.payment = "[title='Pay by bank wire']";
-        this.proceedToCheckoutPayment = ".cart_navigation span";
+        this.proceedToCheckoutPayment = ".cart_navigation [type='submit']";	    
         this.confirmation = "#center_column > div > p > strong"
     }
 

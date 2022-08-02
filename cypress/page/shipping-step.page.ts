@@ -3,8 +3,8 @@ class ShippingStepPage {
     private proceedToCheckoutAdress: string;         
 
     constructor() {
-        this.check = "[name=cgv]";
-        this.proceedToCheckoutAdress = ".cart_navigation span";
+        this.check = "#uniform-cgv";
+        this.proceedToCheckoutAdress = "button[name='processCarrier']";	    
     }
 
     
