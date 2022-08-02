@@ -3,10 +3,8 @@ class ShippingStepPage {
     private proceedToCheckoutAdress: string;         
 
     constructor() {
-        this.check = "[name=cgv]";
-        this.proceedToCheckoutAdress = "[type='submit'][name='processCarrier']";
-	    // Here, this selector was improved. Using of classes is avoided,
-        // attributes are good selectors.
+        this.check = "#uniform-cgv";
+        this.proceedToCheckoutAdress = "button[name='processCarrier']";	    
     }
 
     

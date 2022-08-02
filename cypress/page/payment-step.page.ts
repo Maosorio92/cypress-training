@@ -5,10 +5,7 @@ class PaymentStepPage {
 
     constructor() {        
         this.payment = "[title='Pay by bank wire']";
-        this.proceedToCheckoutPayment = ".cart_navigation [type='submit']";
-	    // Here, this selector was improved. I could not avoid classes, 
-        // but this one is more clear for the one who is reading it, 
-        // besides an attribute is more recommended than a tag (span).
+        this.proceedToCheckoutPayment = ".cart_navigation [type='submit']";	    
         this.confirmation = "#center_column > div > p > strong"
     }
 
