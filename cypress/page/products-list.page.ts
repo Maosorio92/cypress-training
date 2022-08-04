@@ -15,10 +15,12 @@ class ProductslistPage {
     public addTShirtToCart(name:string): void {
         this.findProductByName(name).find(this.productList).click()        
     }
+
     public proceedToCheckout(): void {
         cy.get(this.proceedToCheckoutProduct).click()
     }
-    public findProductByName(name:string): any {
+    
+    private findProductByName(name:string): any {
         return cy.get(this.shirtsList).filter(`:contains('${name}')`)
     }
 }
