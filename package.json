@@ -4,15 +4,15 @@
   "description": "This is a Workshop about Cypress",
   "main": "index.js",
   "scripts": {
-    "delete:reports": "rmdir -f cypress\\reports",
-    "prereport": "npm run delete:reports",
+    "delete:reports": "rm -r cypress/reports/*",
+    "pretest": "npm run delete:reports",
     "test": "cypress run",
     "test:open": "npm run lint && cypress open",
     "lint": "eslint ./cypress/e2e/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
     "combine:reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/report.json",
     "generate:reports": "marge cypress/reports/report.json -f report -o cypress/reports",
-    "postreport": "npm run combine:reports && npm run generate:reports"
+    "posttest": "npm run combine:reports && npm run generate:reports"
   },
   "repository": {
     "type": "git",
