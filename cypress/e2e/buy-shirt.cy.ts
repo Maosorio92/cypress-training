@@ -30,10 +30,11 @@ describe("Buy a t-shirt", () => {
   it("then should be bought a t-shirt", () => {
     const userEmail="aperdomobo@gmail.com";
     const userPassword="WorkshopProtractor";
+    const tShirt="Faded Short Sleeve T-shirts";
     menuContentPage.visitMenuContentPage();
 
     menuContentPage.goToTShirtMenu();
-    productsListPage.goToProductList();
+    productsListPage.addTShirtToCart(tShirt);
     productsListPage.proceedToCheckout();
     shopingCartPage.proceedToCheckout();
     loginPage.signIn(userEmail, userPassword);
